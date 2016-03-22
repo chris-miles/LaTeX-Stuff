@@ -1,18 +1,14 @@
 # LaTeX-Stuff
-***
-
-Various tidbits of possibly useful LaTeX code
+various tidbits of possibly useful LaTeX code
 
 
 ## gif-example
----
 provides a minimal example (`gif_latex.tex`) utilizing the `animate` package to animate GIFs in a LaTeX document (beamer presentation) 
 
-the file `generate_gif_plot.py` also provides an example of how to generate animations using `MatPlotLib` 
+the file `generate_gif_plot.py` also provides an example of how to generate animations using `matplotlib` 
 
 
 ## hw-template
----
 a package providing the formatting for a template of homework submissions. to use, call:
 
 ```latex
