@@ -7,6 +7,8 @@ provides a minimal example (`gif_latex.tex`) utilizing the `animate` package to 
 
 the file `generate_gif_plot.py` also provides an example of how to generate animations using `matplotlib` 
 
+**important note:** these animations *only* work when the generated PDF is viewed with [Adobe Reader](https://get.adobe.com/reader/).
+
 
 ## hw-template
 a package providing the formatting for a template of homework submissions. to use, call:
