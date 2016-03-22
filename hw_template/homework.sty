@@ -1,0 +1,125 @@
+\ProvidesPackage{homework}[2013/01/13 Homework Template by Chris Miles]
+% Loads a number of packages and defines commands useful for writing up math homework
+
+
+% Loads a bunch of math package
+\RequirePackage{amssymb}
+\RequirePackage{amsmath}
+\RequirePackage{mathrsfs}
+\RequirePackage{amsthm}
+
+% Loads ability to put boxes
+\RequirePackage{framed}
+
+% Defines colors
+\RequirePackage{color}
+
+% Can ``cancel out'' things
+\RequirePackage{cancel}
+
+% More control over enumerating
+\RequirePackage{enumerate}
+
+% Best package for code listing
+\RequirePackage{listings}
+
+% For big integrals
+\RequirePackage{bigints}
+
+% Font-wrapping 
+\RequirePackage[american]{babel}
+
+% Font encoding
+\RequirePackage[T1]{fontenc}
+
+% Declares `sanfont` option. If true, loads CM bright font
+\newif\if@sansfont\@sansfontfalse
+\DeclareOption{sansfont}{\@sansfonttrue}
+\ProcessOptions\relax
+
+\if@sansfont
+  \RequirePackage{cmbright}
+\fi
+
+
+% Thickness of box around problem environment
+\FrameRule = .45mm
+\def\lstbasicfont{\fontfamily{pcr}\selectfont\footnotesize}
+
+% Defines Lemmas and Theorems
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{theorem}{Theorem}
+
+% Number equations and figures relative to problem
+
+\newcounter{problemCount}
+\newcounter{partCount}
+\numberwithin{equation}{problemCount}
+\numberwithin{figure}{problemCount}
+
+%defines the \prob{}{} command for homework problems
+\newcommand{\prob}[2]
+  {\begin{framed}
+   \stepcounter{problemCount}
+   \noindent{{\large \bf Problem \arabic{problemCount}} }{\small \em #1} \\ 
+   \smallskip
+   #2
+   \setcounter{partCount}{1} 
+   \end{framed}}
+
+% defines the \subproblem{} command for subproblems a, b, c ...
+% NOT recommended for use but included 
+\newcommand{\subproblem}{
+($\alph{partCount}$) 
+\stepcounter{partCount}
+}
+
+% \subend{} command for ending subproblems
+\newcommand{\subend}{
+\\ \vspace{2mm}
+}
+\newtheorem*{theorem*}{Theorem}
+
+
+% Lots of math commands frequently used but have long names
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\rats}{\mathbb{Q}}
+\newcommand{\range}{\mathscr{R}}
+\newcommand{\domain}{\mathscr{D}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\real}[1]{\text{Re} \hspace{.5mm} \left \{ #1 \right \}}
+\newcommand{\imagin}[1]{\text{Im} \hspace{.5mm} \left \{ #1 \right \}}
+
+
+\newcommand{\norm}[1]{|| #1 ||}
+\newcommand{\limn}{\lim_{n\rightarrow \infty} }
+\newcommand{\iprod}[2]{ \left \langle {#1},{#2} \right \rangle}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\wconv}{\overset{*}{\rightharpoonup}}
+\newcommand{\deriv}[2]{\frac{\text{d} #1}{\text{d} #2}}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\laplace}[1]{\mathcal{L}\{ #1\}}
+\newcommand{\eps}{\varepsilon}
+
+
+\newcommand{\dd}{\text{d}}
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\sech}{sech}
+
+\def\Res{\mathop{Res}\limits}
+\newcommand{\res}[1]{\Res_{z=#1} \, }
+
+% Abbreviate commands for multiple lined equations
+\newenvironment{subeqns}{\subequations\align}{\endalign\endsubequations}
+\newenvironment{alignedeqn}{\equation\aligned}{\endaligned\endequation}
+
+% Aesthetic fix, can be changed
+\setlength{\parskip}{.35\baselineskip}%
+\setlength{\parindent}{0cm}
+
+\endinput

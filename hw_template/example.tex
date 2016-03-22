@@ -1,0 +1,74 @@
+ % Example usage of the LaTeX homework template
+ % 12/30/14 - Chris Miles
+
+\documentclass[10pt,twoside,fleqn]{article}
+
+% loads homework.sty, the template with Sans-Serif font
+\usepackage[sansfont]{homework}
+
+% set margin to be small, but not too small
+\usepackage[margin=1.75cm]{geometry}
+  
+% sets custom headers/footers for the file, not included in template
+% but could be
+\usepackage{fancyhdr} 
+\usepackage{lastpage}
+
+% plain makes sure that we have page numbers
+\pagestyle{fancyplain}
+
+\fancyhead[L]{Your Name} 
+\fancyhead[C]{Math 6410 - Assignment 4}
+\fancyhead[R]{\today}
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage/\pageref{LastPage}} % Page numbering for right footer
+\setlength{\headheight}{-2pt} % Customize the height of the header
+
+%-----------------------------------
+\begin{document}
+%-----------------------------------
+
+% rather than use \title, can save space this way
+\begin{center}
+\centerline{\textbf{\Large Math 6410 -- Some class title}}
+\centerline{\textbf{\large Assignment 4}}
+\medskip
+\centerline{Your Name} 
+\medskip
+\centerline{\today}
+\end{center}
+
+\thispagestyle{empty} % no number on the first page
+
+\begin{flushleft} % align everything left
+
+%-------------------------
+\prob{Problem title}{Here you can restate the question for the sake of reference and it will fit in the box nicely. Equations work well too:
+\begin{equation*}
+\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.
+\end{equation*}}
+Here you can type your answer to the question. Again, equations align nicely. 
+\begin{equation*}
+\zeta(s) = \prod_{p \text{ prime}} \frac{1}{1-p^{-s}}= \frac{1}{1-2^{-s}}\cdot\frac{1}{1-3^{-s}}\cdot\frac{1}{1-5^{-s}}\cdot\frac{1}{1-7^{-s}} \cdots \frac{1}{1-p^{-s}} \cdots.
+\end{equation*}
+%-------------------------
+
+\prob{Another problem title}{We can also have problems with several parts by using the \texttt{enumerate} package:
+\begin{enumerate}[(a)]
+\item First part
+\item Second Part
+\end{enumerate}}
+And again, we can answer the question with the same package:
+\begin{enumerate}[(a)]
+\item First answer.
+\item Second answer. Notice equations (and figures) are numbered by the problem: 
+\begin{equation}
+\zeta(s) = 2^s\pi^{s-1}\ \sin\left(\frac{\pi s}{2}\right)\ \Gamma(1-s)\ \zeta(1-s). \label{eq:important}
+\end{equation} 
+\end{enumerate}
+To conclude, we can also reference our equations, particularly \eqref{eq:important}.
+\end{flushleft}
+%-------------------------
+\end{document}
+%-------------------------
